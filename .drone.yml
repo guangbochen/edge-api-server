@@ -189,20 +189,17 @@ platform:
 steps:
 - name: manifest
   image: plugins/manifest:1.0.2
-  environment:
-    REPO:
-      from_secret: image_repo
   settings:
     username:
       from_secret: docker_username
     password:
       from_secret: docker_password
-    target: ${REPO}:${DRONE_TAG}
-    template: ${REPO}:${DRONE_TAG}-ARCH
     platforms:
       - linux/amd64
       - linux/arm64
       - linux/arm
+    target: "guangbo/edge-api-server:${DRONE_TAG}"
+    template: "guangbo/edge-api-server:${DRONE_TAG}-ARCH"
   when:
     ref:
     - refs/head/master
