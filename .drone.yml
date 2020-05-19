@@ -36,14 +36,12 @@ steps:
 
 - name: docker-publish
   image: plugins/docker
-  environment:
-    REPO:
-      from_secret: image_repo
   settings:
     dockerfile: package/Dockerfile
     password:
       from_secret: docker_password
-    repo: "${REPO}"
+    repo:
+      from_secret: image_repo
     tag: "${DRONE_TAG}-amd64"
     username:
       from_secret: docker_username
@@ -98,14 +96,12 @@ steps:
 
 - name: docker-publish
   image: plugins/docker
-  environment:
-    REPO:
-      from_secret: image_repo
   settings:
     dockerfile: package/Dockerfile
     password:
       from_secret: docker_password
-    repo: "${REPO}"
+    repo:
+      from_secret: image_repo
     tag: "${DRONE_TAG}-arm64"
     username:
       from_secret: docker_username
@@ -160,14 +156,12 @@ steps:
 
 - name: docker-publish
   image: plugins/docker
-  environment:
-    REPO:
-      from_secret: image_repo
   settings:
     dockerfile: package/Dockerfile
     password:
       from_secret: docker_password
-    repo: "${REPO}"
+    repo:
+      from_secret: image_repo
     tag: "${DRONE_TAG}-arm"
     username:
       from_secret: docker_username
