@@ -192,8 +192,8 @@ steps:
   environment:
     REPO:
       from_secret: image_repo
-    PLUGIN_TARGET: $REPO:$DRONE_TAG
-    PLUGIN_TEMPLATE: $REPO:${DRONE_TAG}-ARCH
+    PLUGIN_TARGET: ${REPO}:${DRONE_TAG}
+    PLUGIN_TEMPLATE: ${REPO}:${DRONE_TAG}-ARCH
   settings:
     username:
       from_secret: docker_username
